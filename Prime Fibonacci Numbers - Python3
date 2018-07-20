@@ -1,0 +1,26 @@
+#Fibonacci implemented using python3 and some features provided by the language
+
+from math import sqrt
+
+def fibonacci_numbers(fib: list):
+    [fib.append(fib[-1]+fib[-2]) for i in range(20)]
+
+
+def is_prime(number: int) -> bool:
+    if number < 2:
+        return False
+    for i in range(2,int(sqrt(number)+1)):
+        if number % i == 0:
+            return False
+    return True
+
+
+def main():
+    fib = [0,1]
+    fibonacci_numbers(fib)
+    for i in filter(lambda x: is_prime(x), fib):
+        print("Prime Number on Fibonacci Sequence: {n}".format(n=i))
+
+if __name__ == "__main__":
+    main()
+    
